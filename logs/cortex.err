@@ -1,4 +1,3 @@
-nohup: ignoring input
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
@@ -60,6 +59,8 @@ Traceback (most recent call last):
   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
   File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
-  File "/data/data/com.termux/files/home/memzdos/modules/cortex/cortex/server.py", line 5, in <module>
-    from middleware import RequestLogger
-ModuleNotFoundError: No module named 'middleware'
+  File "/data/data/com.termux/files/home/memzdos/modules/cortex/cortex/server.py", line 7, in <module>
+    from cortex.router import cortex_routes
+  File "/data/data/com.termux/files/home/memzdos/modules/cortex/cortex/router.py", line 2, in <module>
+    from controllers.add import add_item
+ModuleNotFoundError: No module named 'controllers'
