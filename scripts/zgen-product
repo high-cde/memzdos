@@ -1,0 +1,2 @@
+#!/bin/bash
+bash ~/memzdos/autobuild/zgen-product-build.sh
