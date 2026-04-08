@@ -1,64 +1,73 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -e
 
-echo "========================================="
-echo "   🧬 Z‑GENESIS — PRODUCT BUILD v2"
-echo "   (AAAK + TEST + CORTEX + LIVE + RELEASE)"
-echo "========================================="
-
 ROOT=~/memzdos
 
-echo
-echo ">>> [1/7] Generazione documentazione"
-cd "$ROOT"
-# qui il tuo comando docs, se esiste
-# es: python scripts/gen_docs.py || true
-echo "Documentazione generata."
+echo "========================================="
+echo "   🧬 Z‑GENESIS — PRODUCT BUILD v3"
+echo "   (AAAK v2 + TEST + CORTEX + LIVE + RELEASE)"
+echo "========================================="
 
 echo
-echo ">>> [2/7] Sync submodules"
+echo ">>> [1/8] Sync submodules"
+cd "$ROOT"
 git submodule update --init --recursive
 git submodule foreach git pull origin main || true
 echo "Submodules sincronizzati."
 
 echo
-echo ">>> [3/7] AAAK install + test"
+echo ">>> [2/8] Installazione AAAK v2"
 cd "$ROOT/modules/aaak"
 pip install . --break-system-packages
-pytest
-echo "AAAK: install + test OK."
+echo "AAAK installato."
 
 echo
-echo ">>> [4/7] Ricostruzione CORTEX"
+echo ">>> [3/8] Test AAAK v2"
+pytest
+echo "AAAK v2: TEST OK."
+
+echo
+echo ">>> [4/8] Build CORTEX"
 cd "$ROOT/modules/cortex"
-# qui il tuo build, se serve
-# es: ./build.sh || true
+# eventuali build script
 echo "CORTEX pronto."
 
 echo
-echo ">>> [5/7] Ricostruzione LIVE"
+echo ">>> [5/8] Build LIVE"
 cd "$ROOT/modules/live"
-# qui il tuo build, se serve
-# es: npm install && npm run build || true
+# eventuali build script
 echo "LIVE pronto."
 
 echo
-echo ">>> [6/7] Commit & Push memzdos + submodules"
-cd "$ROOT"
+echo ">>> [6/8] Commit & Push submodules"
+cd "$ROOT/modules/aaak"
 git add .
-git commit -m "Autobuild: docs + sync + AAAK + rebuild" || true
+git commit -m "AAAK v2: semantic engine + tests" || true
 git push origin main || true
 
-git submodule foreach '
-  git add . &&
-  git commit -m "Autobuild sync" || true &&
-  git push origin main || true
-'
-echo "Push completato."
+cd "$ROOT/modules/cortex"
+git add .
+git commit -m "CORTEX: AAAK v2 integration" || true
+git push origin main || true
+
+cd "$ROOT/modules/live"
+git add .
+git commit -m "LIVE: AAAK v2 integration" || true
+git push origin main || true
+
+echo "Submodules push OK."
 
 echo
-echo ">>> [7/7] Creazione release GitHub"
-TAG="v1.0.$(date +%s)"
+echo ">>> [7/8] Commit & Push memzdos"
+cd "$ROOT"
+git add .
+git commit -m "Autobuild: AAAK v2 + CORTEX + LIVE + sync" || true
+git push origin main || true
+echo "memzdos push OK."
+
+echo
+echo ">>> [8/8] Creazione release GitHub"
+TAG="v2.0.$(date +%s)"
 git tag "$TAG"
 git push origin "$TAG"
 echo "Release creata: $TAG"
@@ -67,8 +76,7 @@ echo
 echo "========================================="
 echo "   🧬 Z‑GENESIS — AUTOBUILD COMPLETATO"
 echo "========================================="
-echo
-echo "AAAK: OK"
+echo "AAAK v2: OK"
 echo "TEST: OK"
 echo "CORTEX: OK"
 echo "LIVE: OK"
