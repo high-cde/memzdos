@@ -17,3 +17,6 @@ Thumbs.db
 
 # Termux / Android
 storage/
+docs/snapshots/
+runtime/
+logs/
