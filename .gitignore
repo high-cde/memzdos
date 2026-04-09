@@ -1,0 +1,19 @@
+# Runtime
+runtime/
+logs/
+docs/snapshots/
+__pycache__/
+*.log
+*.tmp
+
+# Python cache
+*.pyc
+*.pyo
+*.pyd
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Termux / Android
+storage/
