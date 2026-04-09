@@ -22,3 +22,18 @@ Struttura:
 - quantum_state/ → stato quantico
 - visualizer/    → vista logica
 
+
+## Evoluzione Neuro-Computazionale
+
+Moduli aggiunti:
+- neuro_dynamics/plasticity.py  → plasticità sinaptica
+- quantum_state/memory.py       → memoria quantica a lungo termine
+- visualizer/visualizer_3d.py   → payload 3D
+- kernel/neuro_kernel.py        → kernel unificato
+
+Per eseguire il kernel:
+
+```bash
+python kernel/neuro_kernel.py
+```
+
