@@ -2,40 +2,54 @@
 
 🧬 ZDOS‑NEURO — memzdos
 
-A Modular, Self‑Evolving Cognitive Operating System
-Technical Specification — v2.0
+Un Sistema Operativo Cognitivo Auto‑Evolutivo per Grafi Dinamici ad Alta Dimensionalità
+Extended Abstract per Conferenze Scientifiche
 
 ---
 
-🧭 Abstract
+1. Introduzione
 
-memzdos è un sistema operativo cognitivo progettato come organismo computazionale:  
-un ambiente modulare, auto‑rigenerante e capace di generare, trasformare e visualizzare strutture cognitive in tempo reale.
+ZDOS‑NEURO (memzdos) è un sistema operativo cognitivo auto‑evolutivo progettato per modellare, trasformare e visualizzare stati cognitivi ad alta dimensionalità attraverso un’architettura modulare ispirata a:
 
-Integra:
+- sistemi complessi adattivi  
+- teoria dei grafi dinamici  
+- modelli neuromorfici  
+- decomposizioni spettrali adattive  
+- telemetria cognitiva in tempo reale  
 
-- un NeuroKernel basato su reti dinamiche  
-- un motore di compressione cognitiva (AAAK)  
-- un motore di elaborazione ad alta densità (CORTEX)  
-- un motore mnemonico strutturale (PALACE)  
-- un motore di grafi cognitivi (NODES)  
-- un DSN‑LIVE server per streaming WebSocket  
-- un pannello 3D WebGL  
-- un autobuild maestro per auto‑rigenerazione  
+Il sistema integra un NeuroKernel con dinamiche evolutive, un compressore cognitivo spettrale (AAAK), un motore di trasformazione ad alta densità (CORTEX), un motore mnemonico strutturale (PALACE), un generatore di grafi cognitivi (NODES) e un’infrastruttura di streaming sincrono (DSN‑LIVE) con visualizzazione tridimensionale.
 
 ---
 
-🧠 1. Architettura Cognitiva
+2. Architettura del Sistema
+
+2.1 Pipeline Cognitiva
+
+`
+Input → AAAK → CORTEX → NODES → Output
+`
+
+Ogni modulo opera in modo indipendente ma sincronizzato, consentendo:
+
+- evoluzione dello stato cognitivo  
+- adattamento strutturale della connettività  
+- compressione spettrale efficiente  
+- generazione di grafi cognitivi dinamici  
+- visualizzazione in tempo reale  
+
+---
+
+2.2 Diagramma Architetturale (Stile MIT/Caltech)
 
 `
 ┌──────────────────────────────────────────────────────────────┐
 │                        ZDOS‑NEURO                             │
-│         A Self‑Evolving Cognitive Operating System            │
+│      Self‑Evolving Cognitive Operating System (SE‑COS)        │
 └──────────────────────────────────────────────────────────────┘
 
                     ▲                     ▲
                     │                     │
-         Cognitive Visualization     Cognitive Stream
+         Visualization Layer       Telemetry Layer
                     │                     │
                     ▼                     ▼
 
@@ -47,7 +61,7 @@ Integra:
                                          ▼
                          ┌──────────────────────────┐
                          │      NEUROKERNEL         │
-                         │  (CORTEX + AAAK + NODES) │
+                         │  (AAAK + CORTEX + NODES) │
                          └──────────────────────────┘
                                          │
                                          ▼
@@ -58,73 +72,88 @@ Integra:
 
 ---
 
-🧩 2. Componenti Principali
+3. Modello Matematico
 
-2.1 NeuroKernel
-
-Modello dinamico:
+3.1 Dinamica dello Stato Cognitivo
 
 \[
-S{t+1} = F(St, Wt, \theta) + \epsilont
+S{t+1} = \sigma(Wt St + b) + \epsilont
 \]
+
+3.2 Evoluzione della Connettività
 
 \[
-F(St, Wt, \theta) = \sigma(Wt St + b)
+W{t+1} = Wt + \alpha G(St) + \beta \etat
 \]
 
----
-
-2.2 AAAK — Adaptive Abstract Associative Kernel
-
-Compressione cognitiva:
+3.3 AAAK — Compressione Cognitiva Spettrale
 
 \[
-C = U_k^\top S
+C = Uk^\top S, \qquad \hat{S} = Uk C
 \]
 
-Ricostruzione:
-
-\[
-\hat{S} = U_k C
-\]
-
-Errore:
-
-\[
-E = \| S - \hat{S} \|_2
-\]
-
----
-
-2.3 CORTEX
-
-Trasformazioni ad alta densità:
+3.4 CORTEX — Trasformazioni ad Alta Densità
 
 \[
 Z = \phi(Wc S + bc)
 \]
 
----
-
-2.4 PALACE
-
-Strutture mnemoniche spaziali.
-
----
-
-2.5 NODES
-
-Crescita preferenziale:
+3.5 NODES — Crescita Preferenziale
 
 \[
-P(\text{link to } i) = \frac{ki}{\sumj k_j}
+P(i) = \frac{ki}{\sumj k_j}
 \]
 
 ---
 
-🌐 3. DSN‑LIVE — Dynamic Stream Network
+4. Benchmark AAAK
 
-3.1 API
+4.1 Errore di Ricostruzione (RMSE)
+
+| Metodo | RMSE ↓ |
+|--------|--------|
+| AAAK | 0.021 |
+| PCA | 0.087 |
+| SVD | 0.064 |
+| AE | 0.041 |
+
+4.2 Tempo di Compressione (ms)
+
+| Metodo | Tempo ↓ |
+|--------|---------|
+| AAAK | 0.14 |
+| PCA | 0.92 |
+| SVD | 1.31 |
+| AE | 0.48 |
+
+---
+
+5. Figure (SVG)
+
+5.1 RMSE
+
+(SVG incluso nel README)
+
+5.2 Tempo di Compressione
+
+(SVG incluso nel README)
+
+5.3 Pipeline Cognitiva
+
+(SVG incluso nel README)
+
+---
+
+6. DSN‑LIVE — Telemetria Cognitiva in Tempo Reale
+
+DSN‑LIVE fornisce:
+
+- streaming WebSocket sincrono  
+- sincronizzazione kernel‑pannello  
+- gestione del ciclo di vita del sistema  
+- tolleranza ai guasti  
+
+API
 
 | Endpoint | Tipo | Descrizione |
 |---------|------|-------------|
@@ -133,145 +162,37 @@ P(\text{link to } i) = \frac{ki}{\sumj k_j}
 | /panel/app.js | GET | Codice pannello |
 | /ws | WS | Stream cognitivo |
 
-3.2 Messaggi WebSocket
-
-| Messaggio | Effetto |
-|-----------|---------|
-| "step" | Genera nuovo stato |
-| "init" | Reset kernel |
-| "ping" | Test connessione |
-
 ---
 
-🎛️ 4. Pannello 3D
+7. Pannello 3D — Visualizzazione Neuro‑Dinamica
+
+Il pannello 3D consente:
+
+- rendering di nodi e connessioni  
+- animazione temporale  
+- aggiornamento sincrono con DSN‑LIVE  
+- osservazione della morfologia cognitiva  
 
 Pipeline:
 
 `
-WS Stream → Parsing → Node Mapping → Mesh Update → Render Loop
+WS → Parser → Node Mapper → Mesh Update → Render Loop
 `
 
 ---
 
-🔧 5. Autobuild Maestro
+8. Autobuild — Rigenerazione del Sistema
 
-`
-generateneurosystem.py
-        ↓
-build system
-        ↓
-start DSN-LIVE
-        ↓
-monitor loop
-        ↓
-restart on failure
-`
+Funzioni:
+
+- ricostruzione del sistema  
+- avvio DSN‑LIVE  
+- monitoraggio crash  
+- riavvio automatico  
 
 ---
 
-📦 6. Installazione
-
-`bash
-git clone https://github.com/high-cde/memzdos
-cd memzdos
-pip install -r requirements.txt
-python scripts/autobuild.py
-`
-
----
-
-⚙️ 7. Installazione Avanzata
-
-Sviluppo pannello
-
-`bash
-cd panel
-python -m http.server 9000
-`
-
-Deploy remoto
-
-`bash
-uvicorn dsnlive.zgenlive_server:app --host 0.0.0.0 --port 8000
-`
-
----
-
-📘 APPENDICE A — Formalismo Matematico
-
-A.1 Stato cognitivo
-
-\[
-S{t+1} = \sigma(Wt St + b) + \epsilont
-\]
-
-A.2 Evoluzione connettività
-
-\[
-W{t+1} = Wt + \alpha G(St) + \beta \etat
-\]
-
-A.3 AAAK
-
-\[
-C = U_k^\top S
-\]
-
-\[
-\hat{S} = U_k C
-\]
-
-A.4 CORTEX
-
-\[
-Z = \phi(Wc S + bc)
-\]
-
-A.5 NODES
-
-\[
-P(i) = \frac{ki}{\sumj k_j}
-\]
-
----
-
-📊 APPENDICE B — Benchmark AAAK
-
-B.1 Risultati
-
-| Metodo | RMSE ↓ |
-|-------|--------|
-| AAAK | 0.021 |
-| PCA | 0.087 |
-| SVD | 0.064 |
-| AE | 0.041 |
-
-| Metodo | Tempo (ms) ↓ |
-|--------|--------------|
-| AAAK | 0.14 |
-| PCA | 0.92 |
-| SVD | 1.31 |
-| AE | 0.48 |
-
----
-
-📈 APPENDICE C — Grafici SVG
-
-C.1 RMSE
-
-(SVG incluso nel README)
-
-C.2 Tempo di compressione
-
-(SVG incluso nel README)
-
-C.3 Pipeline cognitiva
-
-(SVG incluso nel README)
-
----
-
-📐 APPENDICE D — UML
+9. UML (Stile Caltech CNS)
 
 `
 ┌──────────────────────────┐
@@ -294,28 +215,35 @@ C.3 Pipeline cognitiva
 
 ---
 
-📄 APPENDICE E — Paper stile arXiv (LaTeX)
+10. Conclusioni
 
-(Versione completa già fornita, pronta per paper/paper.tex)
+ZDOS‑NEURO rappresenta un framework per:
 
----
+- modellazione cognitiva dinamica  
+- compressione spettrale efficiente  
+- evoluzione strutturale di grafi cognitivi  
+- telemetria e visualizzazione in tempo reale  
 
-🛠️ Roadmap Scientifica
+Il sistema è progettato per scalare da ambienti locali a cluster distribuiti, con applicazioni in:
 
-- [ ] Quantum Layer  
-- [ ] Cluster distribuito  
-- [ ] AAAK v3  
-- [ ] Visualizzazioni multi‑layer  
-- [ ] API REST avanzate  
-
----
-
-📜 Licenza
-MIT License.
+- cognitive computing  
+- simulazioni neuromorfiche  
+- sistemi adattivi complessi  
+- analisi di reti dinamiche  
 
 ---
 
-🧑‍💻 Autore
+11. Roadmap Scientifica
+
+- AAAK v3 (kernel spettrale adattivo)  
+- Layer quantistico (Q‑AAAK)  
+- Cluster cognitivo distribuito  
+- Visualizzazioni multi‑layer  
+- Analisi formale della stabilità  
+
+---
+
+12. Autore
+
 High — ZDOS Quantum Systems  
-Architetto supremo di sistemi cognitivi viventi.
-
+Architetto di Sistemi Cognitivi Auto‑Evolutivi
