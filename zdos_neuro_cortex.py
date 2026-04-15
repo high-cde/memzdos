@@ -13,7 +13,8 @@ class CortexUnified:
     """
 
     def __init__(self):
-        # I moduli specializzati verranno collegati automaticamente dall'autobuild
+        # I moduli specializzati (es. CyberCortex) verranno collegati automaticamente
+        # dall'autobuild quantistico.
         pass
 
     def ingest(self, signal: Dict[str, Any]) -> Dict[str, Any]:
@@ -26,7 +27,7 @@ class CortexUnified:
         """
         domain = signal.get("domain")
 
-        # Routing CyberCortex (verrà aggiunto automaticamente)
+        # Routing CyberCortex (aggiunto automaticamente dall'autobuild)
         if hasattr(self, "route_cyber"):
             out = self.route_cyber(signal)
             if out is not None:
