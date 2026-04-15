@@ -1,33 +1,31 @@
 from zdos_neuro_cortex_cyber import CyberCortex, CyberSignal, CyberSignalType
 from typing import Any, Dict
 from zdos_neuro_router import NeuroRouter
+from zdos_neuro_quantum_router import QuantumRouter
 
 
 class CortexUnified:
     self.cyber = CyberCortex()
     """
     CORTEX PRINCIPALE ZDOS‑NEURO
-    - riceve segnali
-    - li classifica
-    - li instrada ai moduli specializzati
-    - mantiene coerenza cognitiva dell'organismo
     """
 
     def __init__(self):
         self.router = NeuroRouter()
+        self.qrouter = QuantumRouter()
 
-        # I moduli specializzati (es. CyberCortex)
-        # verranno collegati automaticamente dall'autobuild.
+        # Moduli specializzati (patchati automaticamente)
         pass
 
     def ingest(self, signal: Dict[str, Any]) -> Dict[str, Any]:
         """
         Punto di ingresso generale del CORTEX.
-        Ogni segnale deve avere:
-        - domain
-        - payload
-        - context
         """
+        # Quantum Router → fallback Router
+        out = self.qrouter.route(self, signal)
+        if out.get("status") != "unhandled":
+            return out
+
         return self.router.dispatch(self, signal)
 
     # Routing CyberCortex
