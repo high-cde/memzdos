@@ -1,5 +1,6 @@
 from zdos_neuro_cortex_cyber import CyberCortex, CyberSignal, CyberSignalType
 from typing import Any, Dict
+from zdos_neuro_router import NeuroRouter
 
 
 class CortexUnified:
@@ -13,8 +14,10 @@ class CortexUnified:
     """
 
     def __init__(self):
-        # I moduli specializzati (es. CyberCortex) verranno collegati automaticamente
-        # dall'autobuild quantistico.
+        self.router = NeuroRouter()
+
+        # I moduli specializzati (es. CyberCortex)
+        # verranno collegati automaticamente dall'autobuild.
         pass
 
     def ingest(self, signal: Dict[str, Any]) -> Dict[str, Any]:
@@ -25,19 +28,7 @@ class CortexUnified:
         - payload
         - context
         """
-        domain = signal.get("domain")
-
-        # Routing CyberCortex (aggiunto automaticamente dall'autobuild)
-        if hasattr(self, "route_cyber"):
-            out = self.route_cyber(signal)
-            if out is not None:
-                return out
-
-        return {
-            "status": "unhandled",
-            "domain": domain,
-            "message": "Nessun modulo ha gestito questo segnale."
-        }
+        return self.router.dispatch(self, signal)
 
     # Routing CyberCortex
     def route_cyber(self, signal):
