@@ -1,36 +1,79 @@
-from zdos_neuro_cortex_cyber import CyberCortex, CyberSignal, CyberSignalType
 from typing import Any, Dict
+
+# Moduli fondamentali
 from zdos_neuro_router import NeuroRouter
 from zdos_neuro_quantum_router import QuantumRouter
 
+# Moduli avanzati
+from zdos_neuro_pipelines import NeuroPipelines
+from zdos_neuro_quantum_field import QuantumFieldViewer
+from zdos_neuro_participation import ParticipationEngine
+
+# Moduli cognitivi
+from zdos_neuro_aaak import AAAK
+
+# Moduli DSN
+from zdos_neuro_dsn_live import DSNLive
+
+# Modulo CyberCortex
+from zdos_neuro_cortex_cyber import CyberCortex, CyberSignal, CyberSignalType
+
 
 class CortexUnified:
-    self.cyber = CyberCortex()
     """
     CORTEX PRINCIPALE ZDOS‑NEURO
+    - Router modulare
+    - Quantum Router
+    - CyberCortex
+    - AAAK
+    - DSN‑LIVE
+    - Neuro‑Pipelines
+    - Quantum Field Viewer
+    - Participation Engine
     """
 
     def __init__(self):
+        # Router principali
         self.router = NeuroRouter()
         self.qrouter = QuantumRouter()
 
-        # Moduli specializzati (patchati automaticamente)
-        pass
+        # Moduli cognitivi
+        self.aaak = AAAK()
+
+        # Moduli DSN
+        self.dsn = DSNLive()
+
+        # Moduli avanzati
+        self.pipelines = NeuroPipelines()
+        self.qfield = QuantumFieldViewer()
+        self.participation = ParticipationEngine()
+
+        # Modulo Cybersecurity
+        self.cyber = CyberCortex()
 
     def ingest(self, signal: Dict[str, Any]) -> Dict[str, Any]:
         """
         Punto di ingresso generale del CORTEX.
         """
-        # Quantum Router → fallback Router
+
+        # 1. Participation Engine (osserva/modifica il segnale)
+        signal = self.participation.process(signal)
+
+        # 2. Quantum Router (priorità alta)
         out = self.qrouter.route(self, signal)
         if out.get("status") != "unhandled":
             return out
 
+        # 3. Router modulare classico
         return self.router.dispatch(self, signal)
 
-    # Routing CyberCortex
+    # -------------------------
+    # ROUTING DEI MODULI
+    # -------------------------
+
+    # CyberCortex
     def route_cyber(self, signal):
-        if getattr(signal, "domain", None) == "cybersecurity":
+        if signal.get("domain") == "cybersecurity":
             return self.cyber.ingest_signal(
                 CyberSignal(
                     type=signal["payload"].get("type", CyberSignalType.THREAT_INTEL),
@@ -38,4 +81,35 @@ class CortexUnified:
                     context=signal["context"]
                 )
             )
+        return None
+
+    # AAAK
+    def route_aaak(self, signal):
+        if signal.get("domain") == "aaak":
+            return self.aaak.compress(signal["payload"])
+        return None
+
+    # DSN‑LIVE
+    def route_dsn(self, signal):
+        if signal.get("domain") == "dsn":
+            return self.dsn.ingest(signal)
+        return None
+
+    # Neuro‑Pipelines
+    def route_pipeline(self, signal):
+        if signal.get("domain") == "pipeline":
+            name = signal["payload"].get("pipeline")
+            return self.pipelines.run(name, signal)
+        return None
+
+    # Quantum Field Viewer
+    def route_qfield(self, signal):
+        if signal.get("domain") == "qfield":
+            return self.qfield.render(signal)
+        return None
+
+    # Participation Engine (già applicato in ingest)
+    def route_participation(self, signal):
+        if signal.get("domain") == "participation":
+            return self.participation.process(signal)
         return None
