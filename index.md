@@ -20,6 +20,7 @@
 - Fingerprinting Semantico
 - Neuro‑Pipelines
 - Quantum Routing
+- CyberCortex (cervello difensivo per la cybersecurity)
 
 ## 4. Prestazioni & Potenza
 - Benchmark Cognitivi
