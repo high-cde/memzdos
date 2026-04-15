@@ -1,13 +1,8 @@
 from typing import Any, Dict
 
-# Moduli fondamentali
+# Router principali
 from zdos_neuro_router import NeuroRouter
 from zdos_neuro_quantum_router import QuantumRouter
-
-# Moduli avanzati
-from zdos_neuro_pipelines import NeuroPipelines
-from zdos_neuro_quantum_field import QuantumFieldViewer
-from zdos_neuro_participation import ParticipationEngine
 
 # Moduli cognitivi
 from zdos_neuro_aaak import AAAK
@@ -15,8 +10,18 @@ from zdos_neuro_aaak import AAAK
 # Moduli DSN
 from zdos_neuro_dsn_live import DSNLive
 
-# Modulo CyberCortex
+# Modulo Cybersecurity
 from zdos_neuro_cortex_cyber import CyberCortex, CyberSignal, CyberSignalType
+
+# Moduli avanzati
+from zdos_neuro_pipelines import NeuroPipelines
+from zdos_neuro_quantum_field import QuantumFieldViewer
+from zdos_neuro_participation import ParticipationEngine
+
+# Moduli evolutivi
+from zdos_neuro_cortex_fusion import CortexFusionLayer
+from zdos_neuro_memory import NeuroMemory
+from zdos_neuro_self_healing import QuantumSelfHealer
 
 
 class CortexUnified:
@@ -30,6 +35,9 @@ class CortexUnified:
     - Neuro‑Pipelines
     - Quantum Field Viewer
     - Participation Engine
+    - Fusion Layer
+    - Memory Engine
+    - Self‑Healing
     """
 
     def __init__(self):
@@ -48,6 +56,11 @@ class CortexUnified:
         self.qfield = QuantumFieldViewer()
         self.participation = ParticipationEngine()
 
+        # Moduli evolutivi
+        self.fusion = CortexFusionLayer()
+        self.memory = NeuroMemory()
+        self.healer = QuantumSelfHealer()
+
         # Modulo Cybersecurity
         self.cyber = CyberCortex()
 
@@ -56,16 +69,20 @@ class CortexUnified:
         Punto di ingresso generale del CORTEX.
         """
 
-        # 1. Participation Engine (osserva/modifica il segnale)
+        # 1. Memorizza sempre il segnale
+        self.memory.store(signal)
+
+        # 2. Participation Engine (osserva/modifica)
         signal = self.participation.process(signal)
 
-        # 2. Quantum Router (priorità alta)
+        # 3. Quantum Router (priorità alta)
         out = self.qrouter.route(self, signal)
         if out.get("status") != "unhandled":
-            return out
+            return self.healer.heal(out)
 
-        # 3. Router modulare classico
-        return self.router.dispatch(self, signal)
+        # 4. Router modulare classico
+        out = self.router.dispatch(self, signal)
+        return self.healer.heal(out)
 
     # -------------------------
     # ROUTING DEI MODULI
@@ -112,4 +129,13 @@ class CortexUnified:
     def route_participation(self, signal):
         if signal.get("domain") == "participation":
             return self.participation.process(signal)
+        return None
+
+    # Fusion Layer
+    def route_fusion(self, signal):
+        if signal.get("domain") == "fusion":
+            aaak_out = self.route_aaak({"domain": "aaak", "payload": signal["payload"], "context": signal["context"]})
+            dsn_out = self.route_dsn({"domain": "dsn", "payload": signal["payload"], "context": signal["context"]})
+            cyber_out = self.route_cyber({"domain": "cybersecurity", "payload": signal["payload"], "context": signal["context"]})
+            return self.fusion.fuse(aaak_out, dsn_out, cyber_out)
         return None
