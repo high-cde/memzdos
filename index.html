@@ -2,89 +2,137 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>ZDOS‑NEURO — Quantum System</title>
+  <title>ZDOS‑NEURO — README + Dashboard</title>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/quantum.css">
   <style>
-    .overview {
-      padding: 3rem 8vw;
-      background: #0a0f1c;
-      border-bottom: 1px solid #1b2638;
-      line-height: 1.6;
-    }
-    .overview h2 {
-      margin-top: 2rem;
-      color: #00eaff;
-    }
-    .overview p, .overview li {
-      color: #d0eaff;
-      font-size: 1.05rem;
-    }
+    body { font-family: system-ui, sans-serif; background:#050711; color:#d0eaff; }
+    h1,h2,h3 { color:#00eaff; }
+    pre { background:#0a1224; padding:1rem; border-radius:8px; overflow-x:auto; }
+    .section { padding:3rem 8vw; border-bottom:1px solid #1b2638; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:2rem; padding:3rem 8vw; }
+    .panel { background:#070b16; border:1px solid #1b2638; border-radius:12px; padding:1.5rem; min-height:240px; }
   </style>
 </head>
 
-<body class="zdos-theme">
+<body>
 
-  <!-- HERO -->
-  <header class="zdos-hero">
-    <h1>ZDOS‑NEURO</h1>
-    <p>Quantum–Neuro Computational System</p>
-  </header>
+<header class="section">
+  <h1>ZDOS‑NEURO</h1>
+  <p>Quantum–Neuro Computational System • Technical README + Live Dashboard</p>
+</header>
 
-  <!-- OVERVIEW SCIENTIFICA -->
-  <section class="overview">
-    <h2>1. System Identity</h2>
-    <p>ZDOS‑NEURO è un sistema computazionale ispirato alla neurobiologia e ai modelli di fisica dell’informazione. Opera come un organismo digitale composto da moduli autonomi che cooperano attraverso una mesh cognitiva distribuita.</p>
+<!-- INTRO -->
+<section class="section">
+  <h2>📘 Introduzione</h2>
+  <p>ZDOS‑NEURO è un sistema operativo computazionale ispirato ai modelli neuro‑quantistici.  
+  Questo index funge da <strong>README tecnico</strong> e da <strong>dashboard vivo</strong> del sistema.</p>
+</section>
 
-    <h2>2. Neuro–Kernel</h2>
-    <ul>
-      <li>Reti di attivazione con pesi plastici</li>
-      <li>Modelli di integrazione‑e‑fire</li>
-      <li>Oscillazioni interne e sincronizzazione</li>
-      <li>Modulazione dello stato tramite segnali globali</li>
-    </ul>
+<!-- INSTALLAZIONE -->
+<section class="section">
+  <h2>⚙️ Installazione</h2>
+  <pre>
+git clone https://github.com/high-cde/memzdos
+cd memzdos
+./zdos_boot.sh
+  </pre>
+</section>
 
-    <h2>3. Quantum State Engine</h2>
-    <ul>
-      <li>Sovrapposizione di rappresentazioni</li>
-      <li>Riduzione dello stato tramite osservazione computazionale</li>
-      <li>Compressione semantica ad alta densità</li>
-      <li>Persistenza di pattern informativi</li>
-    </ul>
+<!-- ARCHITETTURA -->
+<section class="section">
+  <h2>🏗 Architettura del Sistema</h2>
+  <p>ZDOS‑NEURO è composto da moduli autonomi che cooperano tramite una mesh cognitiva.</p>
 
-    <h2>4. DSN‑CORE Mesh Router</h2>
-    <ul>
-      <li>Distribuzione dei segnali tra moduli</li>
-      <li>Mantenimento della topologia della mesh</li>
-      <li>Gestione della partecipazione dei nodi</li>
-      <li>Stabilizzazione del flusso informativo</li>
-    </ul>
+  <pre>
+/core
+  ├── neuro_kernel/        # dinamiche neurali
+  ├── quantum_engine/      # memoria quantistica
+  ├── dsn_core/            # router mesh
+  ├── dsn_live/            # telemetria
+  └── cortex/              # stato cognitivo
+  </pre>
+</section>
 
-    <h2>5. DSN‑LIVE Telemetry Stream</h2>
-    <ul>
-      <li>Analisi dinamica</li>
-      <li>Ricostruzione degli stati</li>
-      <li>Monitoraggio del metabolismo computazionale</li>
-      <li>Visualizzazione in tempo reale</li>
-    </ul>
-  </section>
+<!-- ESEMPI -->
+<section class="section">
+  <h2>📦 Esempi di Utilizzo</h2>
 
-  <!-- DASHBOARD -->
-  <main class="grid">
-    <section id="cortex-dashboard" class="panel quantum-border"></section>
-    <section id="dsn-live-panel" class="panel quantum-border"></section>
-    <section id="quantum-field-viewer" class="panel quantum-border"></section>
-    <section id="pipelines-panel" class="panel quantum-border"></section>
-    <section id="cyber-panel" class="panel quantum-border"></section>
-    <canvas id="entropy-chart" class="panel quantum-border"></canvas>
-  </main>
+  <h3>1. Lettura stato cognitivo</h3>
+  <pre>
+zdos cortex --state
+  </pre>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="assets/script.js"></script>
-  <script src="assets/charts.js"></script>
-  <script src="assets/quantum.js"></script>
-  <script src="assets/quantum-webgl.js"></script>
+  <h3>2. Generazione snapshot quantistico</h3>
+  <pre>
+zdos quantum --snapshot
+  </pre>
+
+  <h3>3. Visualizzazione telemetria</h3>
+  <pre>
+zdos dsn-live --stream
+  </pre>
+</section>
+
+<!-- MODULI -->
+<section class="section">
+  <h2>🧠 Moduli Principali</h2>
+
+  <h3>Neuro‑Kernel</h3>
+  <ul>
+    <li>Reti di attivazione</li>
+    <li>Oscillazioni interne</li>
+    <li>Plasticità dinamica</li>
+  </ul>
+
+  <h3>Quantum Engine</h3>
+  <ul>
+    <li>Sovrapposizione informativa</li>
+    <li>Riduzione dello stato</li>
+    <li>Compressione semantica</li>
+  </ul>
+
+  <h3>DSN‑CORE</h3>
+  <ul>
+    <li>Routing neurale</li>
+    <li>Topologia mesh</li>
+    <li>Auto‑riparazione</li>
+  </ul>
+</section>
+
+<!-- COMANDI ZDOS -->
+<section class="section">
+  <h2>💻 Comandi ZDOS</h2>
+
+  <pre>
+zdos status
+zdos cortex --inspect
+zdos quantum --entropy
+zdos pipelines --list
+zdos cyber --scan
+  </pre>
+</section>
+
+<!-- DASHBOARD -->
+<section class="section">
+  <h2>📡 Dashboard Live</h2>
+  <p>Questa sezione mostra lo stato vivo del sistema, aggiornato ogni 2 secondi.</p>
+</section>
+
+<main class="grid">
+  <section id="cortex-dashboard" class="panel quantum-border"></section>
+  <section id="dsn-live-panel" class="panel quantum-border"></section>
+  <section id="quantum-field-viewer" class="panel quantum-border"></section>
+  <section id="pipelines-panel" class="panel quantum-border"></section>
+  <section id="cyber-panel" class="panel quantum-border"></section>
+  <canvas id="entropy-chart" class="panel quantum-border"></canvas>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/script.js"></script>
+<script src="assets/charts.js"></script>
+<script src="assets/quantum.js"></script>
+<script src="assets/quantum-webgl.js"></script>
 
 </body>
 </html>
